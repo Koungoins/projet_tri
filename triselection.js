@@ -1,9 +1,10 @@
 (function(){
 	
-  let liste = [7, 2, 8, 6, 1, 3, 5, 4, 9]
+  let liste = [8, 2, 7, 6, 1, 3, 5, 4, 9]
   let curseur = document.getElementById("curseur");
   let lis = document.getElementById("tablist").getElementsByTagName("li");
-  
+  console.log(liste);
+  console.log(lis);
   function tri_selection(l){
   	/* à implementer 
     		en prenant comple le html pour animer la fonction
@@ -11,61 +12,63 @@
        	*/
         
         
-  }
-  
-  function printCounter() {
-    console.log(counter);
-    counter++;
-    if (counter < 5)
-        setTimeout(()=>{printCounter(counter)}, 1000);
-	}
-  
-  function tri_bulle(l){
-  	/* à implementer 
-    		en prenant comple le html pour animer la fonction
-        donc prevoir aussi des temps de pause à chaque "action"
-       	*/
-        	
-          /*
-          	HTML pure 
-           	*/
-          let curseur = document.getElementById("curseur");
-        	let lis = document.getElementById("tablist").getElementsByTagName("li");
-        
-        	let changed;
-          let counter = 0;
-   				do{
-        		changed = false;
-            let i = 0;
-            function loop() {
-            	setTimeout(function(){
-              	
-            	if(l[i] > l[i+1]) {
-              	
-                let tmp = l[i];
-                l[i] = l[i+1];
-                l[i+1] = tmp;
-                
-                //HTML
-               	
-                lis[i].classList.add("animate-lft");
-                lis[i+1].classList.add("animate-rgt");
-                
-                // On tri aussi la liste HTML
-                let htmp = lis[i];
-                lis[i] = lis[i+1];
-                lis[i+1] = lis[i];
-              
-                changed = true;
-            	}
-              curseur.classList.add("simpleright");
-              let e = printCounter();
-              curseur.classList.remove("simpleright");
-              lis[0].innerText = ""+counter;
-              i++;
-              }, 3000);
-              loop();
-            }
+  } 
 
-    			} while(changed);  
+  let i = 0;
+  let changed = false;
+  let namechange = false;
+  let v1, v2;
+
+  function forloop() {
+    setTimeout(function(){
+      console.log(liste);
+      console.log(lis);
+      for(let j=0; j<lis.length; j++){
+        lis[j].classList.remove("animate-lft");
+        lis[j].classList.remove("animate-rgt");
+      }
+      curseur.classList.remove("simpleright");
+
+
+      // on delay le chgt de nom
+      if(namechange) {
+        lis[i-1].innerText = v1 
+        lis[i].innerText = v2
+        namechange = false;
+      }
+
+      if(i<liste.length-1){
+
+        if(liste[i] > liste[i+1]){
+          let tmp = liste[i];
+          liste[i] = liste[i+1];
+          liste[i+1] = tmp;
+          changed = true;
+          namechange = true;
+          
+          //HTML
+          lis[i].classList.add("animate-lft");
+          lis[i+1].classList.add("animate-rgt");
+
+          //on delaye le chgt de nom à la prochaine iteration
+          v1 = liste[i];
+          v2 = liste[i+1];
+          //lis[i].innerText = liste[i];
+          //lis[i+1].innerText = liste[i+1];
+
+        }
+        i++;
+        curseur.classList.add("simpleright");
+        forloop();
+      }
+      else if(changed){
+        i = 0;
+        forloop();
+        changed = false;
+      }
+    }, 2000)
   }
+
+  forloop();
+
+})();
