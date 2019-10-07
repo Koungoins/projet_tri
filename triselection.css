@@ -53,29 +53,26 @@ li.animate-rgt {
   animation-fill-mode: forwards;
 }
 
+.simpleright {
+  animation: simplergt 2s;
+  animation-fill-mode: forwards;
+}
+
 @keyframes swaplft {
   0% {
     transform:translateX(0px) translateY(0px);
-    /* left: 0px; 
-    top: 0px; */ 
     background-color: yellow;
   }
   33% {
     transform:translateX(0px) translateY(25px);
-    /*left: 0px; 
-    top: 25px;*/
     background-color: yellow;
   }
   66% {
     transform:translate(50px) translateY(25px);
-    /*left: 50px; 
-    top: 25px; */
     background-color: yellow;
   }
   100% {
     transform:translate(50px) translateY(0px);
-    /*left: 50px; 
-    top: 0px; */
     background-color: red;
   }
 }
@@ -83,26 +80,27 @@ li.animate-rgt {
 @keyframes swaprgt {
   0% {
     transform:translateX(0px) translateY(0px);
-    /* left: 0px; 
-    top: 0px; */ 
     background-color: yellow;
   }
   33% {
     transform:translateX(0px) translateY(-25px);
-    /*left: 0px; 
-    top: -25px;*/
     background-color: yellow;
   }
   66% {
     transform:translate(-50px) translateY(-25px);
-    /*left: -50px; 
-    top: -25px; */
     background-color: yellow;
   }
   100% {
     transform:translate(-50px) translateY(0px);
-    /*left: -50px; 
-    top: 0px; */
     background-color: red;
+  }
+}
+
+@keyframes simplergt {
+  0% {
+    transform:translateX(0px) translateY(0px);
+  }
+  100% {
+    transform:translate(50px) translateY(0px);
   }
 }
