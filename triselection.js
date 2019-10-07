@@ -1,6 +1,8 @@
 (function(){
 	
   let liste = [7, 2, 8, 6, 1, 3, 5, 4, 9]
+  let curseur = document.getElementById("curseur");
+  let lis = document.getElementById("tablist").getElementsByTagName("li");
   
   function tri_selection(l){
   	/* à implementer 
@@ -34,8 +36,10 @@
           let counter = 0;
    				do{
         		changed = false;
-        		for(let i=0; i < l.length-1; i++) {
-            	
+            let i = 0;
+            function loop() {
+            	setTimeout(function(){
+              	
             	if(l[i] > l[i+1]) {
               	
                 let tmp = l[i];
@@ -46,6 +50,11 @@
                	
                 lis[i].classList.add("animate-lft");
                 lis[i+1].classList.add("animate-rgt");
+                
+                // On tri aussi la liste HTML
+                let htmp = lis[i];
+                lis[i] = lis[i+1];
+                lis[i+1] = lis[i];
               
                 changed = true;
             	}
@@ -53,11 +62,10 @@
               let e = printCounter();
               curseur.classList.remove("simpleright");
               lis[0].innerText = ""+counter;
-        		}
+              i++;
+              }, 3000);
+              loop();
+            }
+
     			} while(changed);  
   }
-  
-  
-  tri_bulle(liste);
-  
-})();
