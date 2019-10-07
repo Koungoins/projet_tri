@@ -11,7 +11,7 @@ h1, h2 {
   background: #fff;
 }
 h1 {
-  font-size: 30px
+  font-size: 30px;
 }
 h2 {
   font-size: 20px;
@@ -43,7 +43,7 @@ li {
 }
 
 li.animate-lft {
-  background-color: yellow;
+
   animation: swaplft 5s;
   animation-fill-mode: forwards;
 }
@@ -55,17 +55,17 @@ li.animate-rgt {
 }
 
 @keyframes swaplft {
-  0% {left: 0px; top: 0px;}
-  33% {left: 0px; top: 25px;}
-  66% {left: 50px; top:25px; }
-  100% {left: 50px; top: 0px; }
+  0% {left: 0px; top: 0px; background-color: yellow;}
+  33% {left: 0px; top: 25px; background-color: yellow;}
+  66% {left: 50px; top:25px; background-color: yellow;}
+  100% {left: 50px; top: 0px;  background-color: red;}
 }
 
 @keyframes swaprgt {
-  0% {left: 0px; top: 0px;}
-  33% {left: 0px; top: -25px;}
-  66% {left: -50px; top: -25px; }
-  100% {left: -50px; top: 0px; }
+  0% {left: 0px; top: 0px; background-color: yellow;}
+  33% {left: 0px; top: -25px;background-color: yellow;}
+  66% {left: -50px; top: -25px; background-color: yellow;}
+  100% {left: -50px; top: 0px; background-color: red;}
 }
 
 </style>
