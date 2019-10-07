@@ -14,8 +14,8 @@
   function printCounter() {
     console.log(counter);
     counter++;
-    if (counter < 10)
-        setTimeout(printCounter, 1000);
+    if (counter < 5)
+        setTimeout(()=>{printCounter(counter)}, 1000);
 	}
   
   function tri_bulle(l){
@@ -28,7 +28,7 @@
           	HTML pure 
            	*/
           let curseur = document.getElementById("curseur");
-        	
+        	let lis = document.getElementById("tablist").getElementsByTagName("li");
         
         	let changed;
           let counter = 0;
@@ -37,14 +37,22 @@
         		for(let i=0; i < l.length-1; i++) {
             	
             	if(l[i] > l[i+1]) {
+              	
                 let tmp = l[i];
                 l[i] = l[i+1];
                 l[i+1] = tmp;
+                
+                //HTML
+               	
+                lis[i].classList.add("animate-lft");
+                lis[i+1].classList.add("animate-rgt");
+              
                 changed = true;
             	}
               curseur.classList.add("simpleright");
               let e = printCounter();
               curseur.classList.remove("simpleright");
+              lis[0].innerText = ""+counter;
         		}
     			} while(changed);  
   }
