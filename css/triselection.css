@@ -48,7 +48,7 @@ li.animate-lft {
 }
 
 li.animate-rgt {
-  background-color: yellow;
+
   animation: swaprgt 2s;
   animation-fill-mode: forwards;
 }
@@ -87,11 +87,11 @@ li.animate-rgt {
     background-color: yellow;
   }
   66% {
-    transform:translate(-50px) translateY(-25px);
+    transform:translateX(-50px) translateY(-25px);
     background-color: yellow;
   }
   100% {
-    transform:translate(-50px) translateY(0px);
+    transform:translateX(-50px) translateY(0px);
     background-color: red;
   }
 }
@@ -101,6 +101,6 @@ li.animate-rgt {
     transform:translateX(0px) translateY(0px);
   }
   100% {
-    transform:translate(50px) translateY(0px);
+    transform:translateX(50px) translateY(0px);
   }
 }
