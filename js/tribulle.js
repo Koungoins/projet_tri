@@ -1,11 +1,20 @@
 (function(){
 	
-  let liste = [8, 2, 7, 6, 1, 3, 5, 4, 9]
+  
+  let liste = []
   let curseur = document.getElementById("curseur");
   let lis = document.getElementById("tablist").getElementsByTagName("li");
+  
+  //Récupération de la liste UL pour le traitement
+   for (let i = 0;i<lis.length;i++){
+	  liste.push(parseInt(lis[i].innerText));
+  }
+  
   console.log(liste);
   console.log(lis);
   
+  
+ 
   /*
 
     TRI BULLE
