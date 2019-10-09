@@ -1,4 +1,3 @@
-
 body {
   padding-top: 80px;
   text-align: center;
@@ -37,19 +36,24 @@ li {
   position: relative;
 }
 
+.current_position {
+	background-color: green;
+	border: solid red 1px;
+}
+
 .tab {
   margin: 1em;
 }
 
 li.animate-lft {
 
-  animation: swaplft 2s;
+  animation: swaplft 1s;
   animation-fill-mode: forwards;
 }
 
 li.animate-rgt {
 
-  animation: swaprgt 2s;
+  animation: swaprgt 1s;
   animation-fill-mode: forwards;
 }
 
@@ -61,46 +65,46 @@ li.animate-rgt {
 @keyframes swaplft {
   0% {
     transform:translateX(0px) translateY(0px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   33% {
     transform:translateX(0px) translateY(25px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   66% {
     transform:translate(50px) translateY(25px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   100% {
     transform:translate(50px) translateY(0px);
-    background-color: red;
+    //background-color: red;
   }
 }
 
 @keyframes swaprgt {
   0% {
     transform:translateX(0px) translateY(0px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   33% {
     transform:translateX(0px) translateY(-25px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   66% {
     transform:translateX(-50px) translateY(-25px);
-    background-color: yellow;
+    //background-color: yellow;
   }
   100% {
     transform:translateX(-50px) translateY(0px);
-    background-color: red;
+    //background-color: red;
   }
 }
 
-@keyframes simplergt {
+/*@keyframes simplergt {
   0% {
     transform:translateX(0px) translateY(0px);
   }
   100% {
     transform:translateX(50px) translateY(0px);
   }
-}
+}*/
