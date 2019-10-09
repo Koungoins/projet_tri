@@ -1,44 +1,114 @@
-
 body {
-    padding-top: 80px;
-    text-align: center;
-    font-family: monaco, monospace;
-    background-size: cover;
+  padding-top: 80px;
+  text-align: center;
+  font-family: monaco, monospace;
+  background-size: cover;
+}
+h1, h2 {
+  display: inline-block;
+  background: #fff;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 20px;
+}
+span {
+  background: #fd0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 2em;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+  width: 48px;
+  height: 48px;
+  background-color: red;
+  border: solid black 1px;
+  display: block;
+  position: relative;    
+}
+
+.current_position {
+	background-color: green;
+	border: solid red 1px;
+}
+.position_grand {
+	background-color: grey;
+	border: solid green 1px;
+}
+
+.tab {
+  margin: 1em;
+}
+
+li.animate-lft {
+
+  animation: swaplft 1s;
+  animation-fill-mode: forwards;
+}
+
+li.animate-rgt {
+
+  animation: swaprgt 1s;
+  animation-fill-mode: forwards;
+}
+
+.simpleright {
+  animation: simplergt 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes swaplft {
+  0% {
+    transform:translateX(0px) translateY(0px);
+    //background-color: yellow;
   }
-  h1, h2 {
-    display: inline-block;
-    background: #fff;
+  33% {
+    transform:translateX(0px) translateY(25px);
+    //background-color: yellow;
   }
-  h1 {
-    font-size: 30px;
+  66% {
+    transform:translate(50px) translateY(25px);
+    //background-color: yellow;
   }
-  h2 {
-    font-size: 20px;
+  100% {
+    transform:translate(50px) translateY(0px);
+    //background-color: red;
   }
-  span {
-    background: #fd0;
+}
+
+@keyframes swaprgt {
+  0% {
+    transform:translateX(0px) translateY(0px);
+    //background-color: yellow;
   }
-  
-  ul {
-    list-style-type: none;
-    margin: 2em;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333333;
+  33% {
+    transform:translateX(0px) translateY(-25px);
+    //background-color: yellow;
   }
-  
-  li {
-    float: left;
-    width: 48px;
-    height: 48px;
-    background-color: red;
-    border: solid black 1px;
-    display: block;
-    position: relative;
+  66% {
+    transform:translateX(-50px) translateY(-25px);
+    //background-color: yellow;
   }
-  
-  .tab {
-    margin: 1em;
+  100% {
+    transform:translateX(-50px) translateY(0px);
+    //background-color: red;
   }
-  
-  
+}
+
+/*@keyframes simplergt {
+  0% {
+    transform:translateX(0px) translateY(0px);
+  }
+  100% {
+    transform:translateX(50px) translateY(0px);
+  }
+}*/
