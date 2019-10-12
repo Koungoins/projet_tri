@@ -62,26 +62,27 @@ li.animate-rgt {
 }
 
 .simpleright {
-  animation: simplergt 2s;
-  animation-fill-mode: forwards;
+  animation: simplergt 0.1s;
+  /*animation-fill-mode: forwards;*/
+  animation-play-state: running;
 }
 
 @keyframes swaplft {
   0% {
     transform:translateX(0px) translateY(0px);
-    //background-color: yellow;
+
   }
   33% {
     transform:translateX(0px) translateY(25px);
-    //background-color: yellow;
+
   }
   66% {
     transform:translate(50px) translateY(25px);
-    //background-color: yellow;
+
   }
   100% {
     transform:translate(50px) translateY(0px);
-    //background-color: red;
+
   }
 }
 
@@ -104,11 +105,11 @@ li.animate-rgt {
   }
 }
 
-/*@keyframes simplergt {
+@keyframes simplergt {
   0% {
     transform:translateX(0px) translateY(0px);
   }
   100% {
     transform:translateX(50px) translateY(0px);
   }
-}*/
+}
