@@ -40,9 +40,19 @@ li {
 	background-color: green;
 	border: solid red 1px;
 }
+
+.current_min {
+	background-color: grey;
+	border: solid white 1px;
+}
+
 .position_grand {
 	background-color: grey;
 	border: solid green 1px;
+}
+
+.triee {
+  background-color: white;
 }
 
 .tab {
@@ -62,8 +72,8 @@ li.animate-rgt {
 }
 
 .simpleright {
-  animation: simplergt 0.1s;
-  /*animation-fill-mode: forwards;*/
+  animation: simplergt 0.5s;
+  animation-fill-mode: forwards;
   animation-play-state: running;
 }
 
@@ -89,19 +99,15 @@ li.animate-rgt {
 @keyframes swaprgt {
   0% {
     transform:translateX(0px) translateY(0px);
-    //background-color: yellow;
   }
   33% {
     transform:translateX(0px) translateY(-25px);
-    //background-color: yellow;
   }
   66% {
     transform:translateX(-50px) translateY(-25px);
-    //background-color: yellow;
   }
   100% {
     transform:translateX(-50px) translateY(0px);
-    //background-color: red;
   }
 }
 
@@ -109,7 +115,25 @@ li.animate-rgt {
   0% {
     transform:translateX(0px) translateY(0px);
   }
+  20% {
+    transform:translateX(0px) translateY(0px);
+  }
   100% {
     transform:translateX(50px) translateY(0px);
+  }
+}
+
+@keyframes to_pos1 {
+  0% {
+    transform:translateX(0px) translateY(0px);
+  }
+  20% {
+    transform:translateX(0px) translateY(-25px);
+  }
+  80% {
+    transform:translateX(-350px) translateY(-25px);
+  }
+  100% {
+    transform:translateX(-350px) translateY(0px);
   }
 }

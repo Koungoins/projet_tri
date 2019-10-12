@@ -40,7 +40,7 @@
 
 	    lis[i].classList.add("current_position"); 
 
-      // on delay le chgt de nom
+      //on delay le chgt de nom
       //Changement de position dans le HTML, changment du contenu
       if(namechange) {
         lis[i-1].innerText = v1
