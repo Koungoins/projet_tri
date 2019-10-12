@@ -34,11 +34,11 @@
       for(let j=0; j<lis.length; j++){
         lis[j].classList.remove("animate-lft");
         lis[j].classList.remove("animate-rgt");
-		lis[j].classList.remove("current_position");  
+		    lis[j].classList.remove("current_position");  
       }
       //curseur.classList.remove("simpleright");
 
-	  lis[i].classList.add("current_position"); 
+	    lis[i].classList.add("current_position"); 
 
       // on delay le chgt de nom
       //Changement de position dans le HTML, changment du contenu
@@ -49,7 +49,7 @@
       }
 
       if(i<liste.length-1){
-		//lis[i].classList.add("current_position");  
+		  //lis[i].classList.add("current_position");  
         if(liste[i] > liste[i+1]){
           //Echange de position
           let tmp = liste[i];
@@ -80,7 +80,7 @@
         forloop();
         changed = false;
       } else if(changed==false) {
-		  document.getElementById("fin").innerText="Terminé"
+		  document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
 	  }
 	  
     }, 2000)

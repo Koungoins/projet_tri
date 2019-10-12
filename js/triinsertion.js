@@ -36,45 +36,45 @@
       for(let j=0; j<lis.length; j++){
         lis[j].classList.remove("animate-lft");
         lis[j].classList.remove("animate-rgt");
-		lis[j].classList.remove("current_position");  
-		lis[j].classList.remove("position_grand");
+        lis[j].classList.remove("current_position");  
+        lis[j].classList.remove("position_grand");
       }
-	  current = liste[i]
+	    current = liste[i]
       //curseur.classList.remove("simpleright");
 
 		  lis[i].classList.add("current_position"); 
 
-		//Recherche du plus petit que i depuis le i+1 de la liste
-		console.log("Ici ="+liste[i]);
-		iMini = i;
-		for(let a=i; a<liste.length; a++) {						
-			if(liste[a]<liste[iMini]){
-				iMini = a;										
-			}
-		}
+      //Recherche du plus petit que i depuis le i+1 de la liste
+      console.log("Ici ="+liste[i]);
+      iMini = i;
+      for(let a=i; a<liste.length; a++) {						
+        if(liste[a]<liste[iMini]){
+          iMini = a;										
+        }
+      }
 		
 		
-		if(iMini>=0) {
-			lis[iMini].classList.add("position_grand"); 			
-			console.log("Petit="+liste[iMini]+" que ="+liste[i]);
-			console.log("Avant échange");
-			console.log(liste);
-			//Echange de place
-			let tmp = liste[i];
-			liste[i] = liste[iMini];
-			liste[iMini] = tmp;
-		  
-		  
-			 lis[i].innerText = lis[iMini].innerText;
-			 lis[iMini].innerText = tmp;
-		  
-			
-			console.log("Apres échange");
-			console.log(liste);
-			iMini=-1;
-		}
+      if(iMini>=0) {
+        lis[iMini].classList.add("position_grand"); 			
+        console.log("Petit="+liste[iMini]+" que ="+liste[i]);
+        console.log("Avant échange");
+        console.log(liste);
+        //Echange de place
+        let tmp = liste[i];
+        liste[i] = liste[iMini];
+        liste[iMini] = tmp;
+        
+        
+        lis[i].innerText = lis[iMini].innerText;
+        lis[iMini].innerText = tmp;
+        
+        
+        console.log("Apres échange");
+        console.log(liste);
+        iMini=-1;
+      }
       if(i<liste.length-1){
-		//lis[i].classList.add("current_position");  
+		  //lis[i].classList.add("current_position");  
         /*if(liste[i] > liste[i+1]){
           //Echange de position
           let tmp = liste[i];

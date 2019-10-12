@@ -4,13 +4,20 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div>
+                <h1>Les tris.</h1>
+                <h3>Animation pédagogique</h2>
+            </div>
             <form name="choix_tri">
-                <select name="tri" size="1" multiple>
-                  <option value="choix1"  selected="selected" >Tri sélection</option>
-                  <option value="choix2">Tri insertion</option>
+                <select name="tri">
+                  <option value="selection"  selected="selected" >Tri sélection</option>
+                  <option value="insertion">Tri insertion</option>
+                  <option value="bulle">Tri bulle</option>
                 </select>
-                <INPUT TYPE="button" NAME="bouton" VALUE="Ok" onClick="">
+                <INPUT TYPE="button" NAME="bouton" VALUE="Ok" onClick="choix()">
              </form>
         </div>
+
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
