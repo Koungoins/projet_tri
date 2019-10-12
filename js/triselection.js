@@ -12,23 +12,7 @@
   
   console.log(liste);
   console.log(lis);
- 
-  /*
-  @keyframes to_pos1 {
-  0% {
-    transform:translateX(0px) translateY(0px);
-  }
-  20% {
-    transform:translateX(0px) translateY(-25px);
-  }
-  80% {
-    transform:translateX(-350px) translateY(-25px);
-  }
-  100% {
-    transform:translateX(-350px) translateY(0px);
-  }
-}
-*/
+
 
 
   function dynamicAnimation(pos) {
@@ -109,10 +93,10 @@
           secondloop();
         }
         else if(j === liste.length){
-          //avant tour de boucle, on fait les anims
-
+          //le minimum a été trouve avant ce tour, on se laisse encore deux tour pour les anims et l'algo de tri
+          
+          //avant dernier tour de boucle, on fait les anims
           //si jMinIndex = i pas besoin de le changer alors
-
 
           console.log("ne doit apparaitre qu'une seul fois (i:"+i+")");
           for(let k=i; k<jMinIndex; k++){
@@ -123,13 +107,7 @@
 
           lis[jMinIndex].classList.add(""+dyn);
 
-          
 
-          //on change le html
-
-
-
-          //c'est au dernier tour de la boucle j qu'on incrémente i
           
           j++;
           secondloop();
