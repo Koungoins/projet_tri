@@ -105,7 +105,7 @@
 				console.log("d-1 : "+(cursDecal-1));
 				if(cursDecal-1>=0){
 					lis[cursDecal].innerText = lis[cursDecal-1].innerText	
-					//lis[cursDecal-1].innerText = "";					
+					lis[cursDecal-1].innerText = "";					
 				}							
 				//console.log(cursDecal+">="+iGrand);
 				cursDecal--;			
@@ -122,7 +122,7 @@
 				rechercheMin();				
 			}
 			
-		},200)
+		},500)
 	}
 
 	function removeStyle() {
