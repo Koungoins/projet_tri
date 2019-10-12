@@ -45,6 +45,11 @@ li {
 	border: solid green 1px;
 }
 
+.position_recherche {
+	background-color: blue;
+	border: solid green 1px;
+}
+
 .tab {
   margin: 1em;
 }
