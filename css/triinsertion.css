@@ -40,8 +40,9 @@ li {
 	background-color: green;
 	border: solid red 1px;
 }
-.position_grand {
-	background-color: grey;
+
+.reverse {
+	background-color: navajowhite;
 	border: solid green 1px;
 }
 

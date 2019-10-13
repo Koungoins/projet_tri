@@ -61,6 +61,11 @@
 	function secondloop(){
 		return setTimeout(function(){
 			console.log("   j:"+j);
+			if(j>=0){
+				if(liste[j] > iTemp)
+					lis[j].classList.add("reverse");
+				lis[j+1].classList.remove("reverse");
+			}	
 			if(j >=0 && liste[j] > iTemp){
 				liste[j+1] = liste[j];
 				j--;
@@ -71,6 +76,7 @@
 					lis[m].classList.remove("simpleright");
 					lis[m].classList.remove("move_place");
 					lis[m].classList.remove("current_position");
+					lis[m].classList.remove("reverse");
 				}
 				console.log("debug: jPos:", jPos)
 				const jText = lis[i].innerText;
