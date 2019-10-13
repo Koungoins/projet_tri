@@ -61,8 +61,8 @@
 					namechange = true;
 					
 					//HTML mise en évidence des selections
-				 lis[i].classList.add("animate-lft");
-				 lis[i+1].classList.add("animate-rgt");
+				 	lis[i].classList.add("animate-lft");
+				 	lis[i+1].classList.add("animate-rgt");
 
 					//on delaye le chgt de nom à la prochaine iteration
 					v1 = liste[i];
