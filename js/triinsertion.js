@@ -54,7 +54,7 @@
 	let i = 1;
 	let j = 0;
 	let jPos = -1;
-	let stimeout;
+	let ftimeout, stimeout;
 	let iTemp = -1;
 	let deplacement = false;
 
@@ -86,6 +86,10 @@
 				lis[jPos].innerText = jText;
 				i++;
 				deplacement = false;
+
+				//ne pas attendre pour la prochaine boucle; -- ne fonctionne pas
+				clearTimeout(ftimeout);
+				ftimeout  = firstloop();
 				return;
 			} 
 			else if( j === -1 || liste[j] <= iTemp) {
@@ -138,11 +142,11 @@
 		stimeout = secondloop();
 		
 		
-		firstloop();
+		ftimeout = firstloop();
 	  }, (liste.length+2)*600);
 	}
   
-	firstloop();
+	ftimeout = firstloop();
 	
 
 })();
