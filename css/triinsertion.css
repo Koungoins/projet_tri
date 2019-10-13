@@ -62,7 +62,7 @@ li.animate-rgt {
 }
 
 .simpleright {
-	animation: simplergt 2s;
+	animation: simplergt 0.5s;
 	animation-fill-mode: forwards;
 }
 
@@ -96,11 +96,11 @@ li.animate-rgt {
 	}
 }
 
-/*@keyframes simplergt {
+@keyframes simplergt {
 	0% {
 		transform:translateX(0px) translateY(0px);
 	}
 	100% {
 		transform:translateX(50px) translateY(0px);
 	}
-}*/
+}
