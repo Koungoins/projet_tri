@@ -10,7 +10,7 @@
 		let slct = document.getElementsByName('tri')[0];
 		let tri = slct.value;
 		//console.log(tri, window.location);
-		windowFileProtocolChange('tri'+tri+'.html');
+		windowFileProtocolChange('pages/tri'+tri+'.html');
 
 
 	}
