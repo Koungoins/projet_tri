@@ -175,7 +175,7 @@
 		clearTimeout(stimeout);
 		stimeout = secondloop();
 		
-	  }, 1000);
+	  }, 100);
 	}
   
 	start = new Date();
