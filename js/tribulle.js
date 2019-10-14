@@ -1,6 +1,41 @@
 (function(){
 	
-	
+	let startTime = 0;
+	let start = 0;
+	let end = 0;
+	let diff = 0;
+	let timerID = 0;
+	let chronoStart=true;
+	function chrono(){
+		setTimeout(function(){			
+			end = new Date();
+			diff = end - start;
+			diff = new Date(diff);
+			let msec = diff.getMilliseconds();
+			let sec = diff.getSeconds();
+			let min = diff.getMinutes();
+			let hr = diff.getHours()-1;
+			if (min < 10){
+			  min = "0" + min;
+			}
+			if (sec < 10){
+			  sec = "0" + sec;
+			}
+			if(msec < 10){
+			  msec = "00" +msec;
+			}
+			else if(msec < 100){
+			  msec = "0" +msec;
+			}
+			document.getElementById("chronotime").innerHTML = min + ":" + sec + ":" + msec;
+			if(chronoStart) {
+				chrono();
+			}
+		}, 10)
+	}
+
+
+
 	let liste = []
 	let curseur = document.getElementById("curseur");
 	let lis = document.getElementById("tablist").getElementsByTagName("li");
@@ -80,13 +115,17 @@
 				forloop();
 				changed = false;
 			} else if(changed==false) {
-			document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
-		}
+				chronoStart =false;
+				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
+			}
 		
 		}, 2000)
 	}
 
+	start = new Date();
+	chrono();
 	forloop();
+
 	
 
 })();
