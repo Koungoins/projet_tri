@@ -119,7 +119,7 @@
 				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
 			}
 		
-		}, 2000)
+		}, 600)
 	}
 
 	start = new Date();

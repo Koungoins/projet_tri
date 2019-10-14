@@ -19,21 +19,25 @@ span {
 }
 
 ul {
+	height: 150px;
 	list-style-type: none;
 	margin: 2em;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333333;
+	//background-color: #333333;
 }
 
 li {
+	top:50px;
 	float: left;
 	width: 48px;
 	height: 48px;
 	background-color: red;
 	border: solid black 1px;
 	display: block;
-	position: relative;    
+	position: relative;  
+	border-radius: 6px;
+	box-shadow: 0 0 12px 0 #777;  	
 }
 
 .current_position {
