@@ -144,6 +144,14 @@
 			lis[k].classList.remove("current_min");
 			lis[k].classList.remove("current_position");
 		  }
+
+		  //on appele la prochaine i loop ici directement
+		  	console.log("i:"+i);
+			console.log(liste, lis);
+			j=i;
+			jMin = Number.POSITIVE_INFINITY;
+			jMinIndex = -1;
+			firstloop();
 	
 		}
 		
@@ -173,13 +181,8 @@
 	  clearTimeout(stimeout);
 	  stimeout = secondloop();
 
-	  console.log("i:"+i);
-	  console.log(liste, lis);
-	  j=i;
-	  jMin = Number.POSITIVE_INFINITY;
-	  jMinIndex = -1;
-	  firstloop();
-	}, (liste.length - i+6)*600);
+	  
+	}, 1000);
   }
 
   firstloop();
