@@ -12,148 +12,174 @@
   
   console.log(liste);
   console.log(lis);
- 
- 
+
+
+
+  function dynamicAnimation(pos) {
+	//creer une animation dynamique pour l'élement à caser;
+
+	let style = document.createElement('style');
+	style.type = 'text/css';
+	let keyFrames = '\
+	.move_min  {\
+	  animation: move 0.5s;\
+	  animation-fill-mode: forwards;\
+	}\
+	  \
+	@keyframes move {\
+		0% {\
+			transform: translateX(0px) translateY(0px);\
+		}\
+		20% {\
+		  transform: translateX(0px) translateY(-25px);\
+		}\
+		60% {\
+		  transform: translateX(DYNC_VAL) translateY(-25px);\
+		}\
+		100% {\
+		  transform: translateX(DYNC_VAL) translateY(0px);\
+		}\
+	}\
+	';
+	style.innerHTML = keyFrames.replace(/DYNC_VAL/g, "-"+(pos*50)+"px");
+	document.getElementsByTagName('head')[0].appendChild(style);
+
+	return "move_min";
+  }
  
   /*
 
-    TRI INSERTION
+	TRI INSERTION
 
   */
 
+  let iTime = (liste.length) *1000
+  let jTime = 1 * 1000;
   let i = 0;
+  let j = 0;
+
+  let jMin = Number.POSITIVE_INFINITY;
+  let jMinIndex = -1;
+
+  let ftimeout, stimeout;
+
   let changed = false;
   let namechange = false;
-  let v1, v2;
-  let iGrand=-1;
+
   let current;
-  let cursMin=0;
-	let hasMin = false;
-	
-	let inRecherche = false;
-	//Recherche du plus grand que i depuis le début de la liste
-	function rechercheMin(){
-		//lis[cursMin].classList.remove("position_recherche"); 		
-		setTimeout(function(){
-		if(!inDecalage) {			
-			if(cursMin<i){
-				//lis[cursMin].classList.add("position_recherche"); 
-				if(liste[cursMin]>liste[i]){
-					iGrand = cursMin;		
-					lis[iGrand].classList.add("position_grand"); 			
-					console.log("Grand="+liste[cursMin]);
-					inRecherche = false;
-					cursDecal = i;
-					changed = true;	
-					inDecalage = true;					
-					decalage();
-				}			
-										
-				cursMin ++;			
-				rechercheMin();
-				//lis[cursMin].classList.remove("position_recherche"); 		
-			}
-			else {
-				cursMin = 0;
-				inRecherche=false;			
-				console.log("Recherche plus");
-				
-				if(i<liste.length-1){
-					//lis[i].classList.add("current_position");  
-					/*if(liste[i] > liste[i+1]){
-					  //Echange de position
-					  let tmp = liste[i];
-					  liste[i] = liste[i+1];
-					  liste[i+1] = tmp;
-					  //Il y a eu un changement
-					  changed = true;
-					  //On va inverser le contenu des items
-					  namechange = true;
-					  
-					  //HTML mise en évidence des selections
-					 lis[i].classList.add("animate-lft");
-					 lis[i+1].classList.add("animate-rgt");
 
-					  //on delaye le chgt de nom à la prochaine iteration
-					  v1 = liste[i];
-					  v2 = liste[i+1];
-					  //lis[i].innerText = liste[i];
-					  //lis[i+1].innerText = liste[i+1];
 
-					}*/
-					console.log("Continu");
-					i++;
-					//curseur.classList.add("simpleright");
-					forloop();
-				} else {
-					document.getElementById("fin").innerText="Terminé";
-				}			
-			}
-		}			
-		}, 500)
-	}
-	
-	let cursDecal = 0;
-	//Decalage des éléments vers la droite
-	let inDecalage = false;
-	function decalage() {
-		setTimeout(function(){
-			if(cursDecal>iGrand) {
-				console.log("Decalage="+liste[cursDecal-1]);
-				liste[cursDecal]=liste[cursDecal-1];
-				//lis[d].classList.add("animate-rgt");         
-				console.log("d-1 : "+(cursDecal-1));
-				if(cursDecal-1>=0){
-					lis[cursDecal].innerText = lis[cursDecal-1].innerText	
-					lis[cursDecal-1].innerText = "";					
-				}							
-				//console.log(cursDecal+">="+iGrand);
-				cursDecal--;			
-				decalage();				
-			}			
-			else {
-				liste[iGrand] = current;
-				lis[iGrand].innerText = current;	
-				console.log("Apres decalage");
-				console.log(liste);
-				iGrand=-1;	
-				inDecalage = false;
-				cursMin ++;			
-				rechercheMin();				
-			}
-			
-		},500)
-	}
+  function secondloop(){
+	  return setTimeout(function(){
+		console.log("   j:"+j);
+		if(j <= liste.length-1 ){
+		  if(  liste[j] < jMin ) {
+			jMin = liste[j];
+			jMinIndex = j;
 
-	function removeStyle() {
-		//HTML Suppression du style de selection
-		  for(let j=0; j<lis.length; j++){
-			lis[j].classList.remove("animate-lft");
-			lis[j].classList.remove("animate-rgt");
-			lis[j].classList.remove("current_position");  
-			lis[j].classList.remove("position_grand");
+			for(let k=0; k<lis.length; k++){
+			  lis[k].classList.remove("simpleright");
+			  lis[k].classList.remove("current_min"); 
+			}
+			lis[j].classList.add("current_min");
 		  }
-	}
+		  if (j !== 0){
+			lis[j-1].classList.remove("current_position");
+		  }
+		  if(j)
+			lis[j].classList.add("current_position");
+		  j++;
 
-  function forloop() {
-    setTimeout(function(){	
-		if(!inRecherche && !inDecalage){
-		  console.log(liste);
-		  console.log(lis);
-		  removeStyle();
-		  current = liste[i]
-		  //curseur.classList.remove("simpleright");
-			lis[i].classList.add("current_position"); 
-			cursMin=0;
-			console.log("Ici ="+liste[i]);
-			inRecherche = true;		
-			rechercheMin();			
+		  secondloop();
 		}
-	}, 500)
-    
+		else if(j === liste.length){
+		  //le minimum a été trouve avant ce tour, on se laisse encore deux tour pour les anims et l'algo de tri
+		  
+		  //avant dernier tour de boucle, on fait les anims
+		  //si jMinIndex = i pas besoin de le changer alors
+
+		  console.log("ne doit apparaitre qu'une seul fois (i:"+i+")");
+		  for(let k=i; k<jMinIndex; k++){
+			lis[k].classList.add("simpleright"); 
+		  }
+
+		  const dyn = dynamicAnimation(Number(jMinIndex-i));
+
+		  lis[jMinIndex].classList.add(""+dyn);
+
+
+		  
+		  j++;
+		  secondloop();
+		  //clear ici aussi pour plus de fluidité
+
+		}
+		else {
+		  // dernier tour de boucle - x ms apreès l'avant dernier - on peut clear les animation
+		  //on change le tableau et le html en même temps
+		  //algo du tri select ici
+		  const temp = liste[jMinIndex];
+		  const htemptxt = lis[jMinIndex].innerText;
+		  //console.log("H", htemp.innerText)
+		  for(let v=jMinIndex; v>=i; v--){
+			if(v === i){
+			  liste[v] = temp;
+			  lis[v].innerText = htemptxt;
+			  //console.log("V", lis[v].innerText, "H2", htemp.innerText);
+			}  
+			else {
+			  liste[v] = liste[v-1];
+			  lis[v].innerText = lis[v-1].innerText;
+			}
+		  }
+
+		  //on considère donc l'élèments comme trié
+		  lis[i].classList.add("triee");
+
+		  i++;
+		  for(let k=0; k<lis.length; k++){
+			lis[k].classList.remove("simpleright");
+			lis[k].classList.remove("move_to_pos1");
+			lis[k].classList.remove("move_min");
+			lis[k].classList.remove("current_min");
+			lis[k].classList.remove("current_position");
+		  }
+	
+		}
+		
+	  }, 600)
   }
 
-  forloop();
-  
+  function firstloop(){
+	return setTimeout(function(){
+	  
+	  if(i>=liste.length){
+		
+		//tri terminé
+		console.log("tri terminé");
+		return;
+	  }
+	  
+	  
+	  for(let k=0; k<lis.length; k++){
+		lis[k].classList.remove("simpleright");
+		lis[k].classList.remove("move_to_pos1");
+		lis[k].classList.remove("move_min");
+		lis[k].classList.remove("current_min");
+		lis[k].classList.remove("current_position");
+	  }
+	  
+	  clearTimeout(stimeout);
+	  stimeout = secondloop();
 
+	  console.log("i:"+i);
+	  console.log(liste, lis);
+	  j=i;
+	  jMin = Number.POSITIVE_INFINITY;
+	  jMinIndex = -1;
+	  firstloop();
+	}, (liste.length - i+6)*600);
+  }
+
+  firstloop();
 })();
