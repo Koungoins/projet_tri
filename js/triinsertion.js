@@ -126,6 +126,7 @@
 			//terminé
 			console.log('terminé');
 			console.log(liste);
+			document.getElementById("fin").innerText="Terminé";
 			return;
 		}
 

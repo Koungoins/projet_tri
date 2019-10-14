@@ -157,6 +157,7 @@
 		
 		//tri terminé
 		console.log("tri terminé");
+		document.getElementById("fin").innerText="Terminé";
 		return;
 	  }
 	  
