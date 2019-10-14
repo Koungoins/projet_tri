@@ -175,9 +175,7 @@
 		clearTimeout(stimeout);
 		stimeout = secondloop();
 		
-		
-		ftimeout = firstloop();
-	  }, (liste.length+2)*600);
+	  }, 1000);
 	}
   
 	start = new Date();
