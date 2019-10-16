@@ -57,6 +57,7 @@
 	*/
 
 	let i = 0;
+	let iMax = liste.length-1;
 	let changed = false;
 	let namechange = false;
 	let v1, v2;
@@ -83,7 +84,7 @@
 				namechange = false;
 			}
 
-			if(i<liste.length-1){
+			if(i<iMax){
 			//lis[i].classList.add("current_position");  
 				if(liste[i] > liste[i+1]){
 					//Echange de position
@@ -112,6 +113,9 @@
 			}
 			else if(changed){
 				i = 0;
+				//optimisation tri
+				lis[iMax].classList.add("triee");
+				iMax--;
 				forloop();
 				changed = false;
 			} else if(changed==false) {
@@ -119,7 +123,7 @@
 				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
 			}
 		
-		}, 2000)
+		}, 600)
 	}
 
 	start = new Date();

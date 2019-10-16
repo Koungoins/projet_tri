@@ -1,5 +1,5 @@
 body {
-	padding-top: 80px;
+	padding-top: 50px;
 	text-align: center;
 	font-family: monaco, monospace;
 	background-size: cover;
@@ -31,7 +31,7 @@ ul {
   height : 150;
   width: 500;
   overflow: hidden;
-  //background-color: #333333;
+
 }
 
 li {
@@ -65,19 +65,19 @@ li {
 
 li.animate-lft {
 
-	animation: swaplft 1s;
+	animation: swaplft 500ms;
 	animation-fill-mode: forwards;
 }
 
 li.animate-rgt {
-	animation: swaprgt 1s;
+	animation: swaprgt 500ms;
 	animation-fill-mode: forwards;
 }
 
-.simpleright {
-	animation: simplergt 2s;
-	animation-fill-mode: forwards;
+.triee {
+	background-color: white;
 }
+
 
 @keyframes swaplft {
 	0% {
