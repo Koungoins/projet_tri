@@ -116,8 +116,8 @@
 				//optimisation tri
 				lis[iMax].classList.add("triee");
 				iMax--;
-				forloop();
 				changed = false;
+				forloop();
 			} else if(changed==false) {
 				chronoStart =false;
 				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
