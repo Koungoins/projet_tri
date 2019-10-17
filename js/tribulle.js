@@ -39,14 +39,8 @@
 		lis = document.getElementById("tablist").getElementsByTagName("li");
 		liste = [];
 		console.log("taille liste av R:"+lis.length);
-		let a=lis.length;
-		let tl =lis.length; 
-		//Supprimer l'encienne liste
-		while(tl>0 && a>-1) {
-			console.log("Cici : "+lis[a].innerHTML+" taille="+a);
-			lis[a].getElementsByTagName("li").innerHTML="teste"+a;			
-			a--;
-		}
+		let a = lis.length;
+		let tl = lis.length; 
 		
 		console.log("taille liste ap R:"+lis.length);
 		//Récupération de la liste UL pour le traitement
@@ -78,7 +72,11 @@
 
 	function forloop() {
 		setTimeout(function(){
-			if(stopTr) {return;}
+			if(stopTr) {
+				//effacer les lis
+				document.getElementById("tablist").innerHTML = "";
+				return;
+			}
 			console.log(liste);
 			console.log(lis);
 			//HTML Suppression du style de selection
