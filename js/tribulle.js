@@ -41,11 +41,12 @@
 		console.log("taille liste av R:"+lis.length);
 		let a=lis.length;
 		let tl =lis.length; 
-		/*while(tl>0 && a>-1) {
-			console.log("Cici : "+lis[a]+" taille="+a);
+		//Supprimer l'encienne liste
+		while(tl>0 && a>-1) {
+			console.log("Cici : "+lis[a].innerHTML+" taille="+a);
 			lis[a].getElementsByTagName("li").innerHTML="teste"+a;			
 			a--;
-		}*/
+		}
 		
 		console.log("taille liste ap R:"+lis.length);
 		//Récupération de la liste UL pour le traitement
