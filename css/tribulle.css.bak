@@ -1,5 +1,5 @@
 body {
-	padding-top: 50px;
+	padding-top: 80px;
 	text-align: center;
 	font-family: monaco, monospace;
 	background-size: cover;
@@ -25,13 +25,14 @@ span {
 
 
 ul {
+<<<<<<< HEAD
   list-style-type: none;
   margin: 2em;
   padding: 0;
   height : 150;
   width: 500;
   overflow: hidden;
-
+  //background-color: #333333;
 }
 
 li {
@@ -42,9 +43,24 @@ li {
   background-color: red;
   border: solid black 1px;
   display: block;
-  position: relative;  
-  border-radius: 6px;
-  box-shadow: 0 0 12px 0 #777;  
+  position: relative;    
+=======
+	list-style-type: none;
+	margin: 2em;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+li {
+	float: left;
+	width: 48px;
+	height: 48px;
+	background-color: red;
+	border: solid black 1px;
+	display: block;
+	position: relative;
+>>>>>>> 8b6aecce79d845a842dd3fcb80a71645ddf2d46c
 }
 
 .current_position {
@@ -58,12 +74,6 @@ li {
 	border: solid red 1;
 }
 
-input {
-	width : 40px;
-	height : 40px;
-	margin : auto;
-	text-align : center;
-}
 
 .tab {
 	margin: 1em;
@@ -71,19 +81,20 @@ input {
 
 li.animate-lft {
 
-	animation: swaplft 500ms;
+	animation: swaplft 1s;
 	animation-fill-mode: forwards;
 }
 
 li.animate-rgt {
-	animation: swaprgt 500ms;
+
+	animation: swaprgt 1s;
 	animation-fill-mode: forwards;
 }
 
-.triee {
-	background-color: white;
+.simpleright {
+	animation: simplergt 2s;
+	animation-fill-mode: forwards;
 }
-
 
 @keyframes swaplft {
 	0% {
@@ -114,3 +125,12 @@ li.animate-rgt {
 		transform:translateX(-50px) translateY(0px);
 	}
 }
+
+/*@keyframes simplergt {
+	0% {
+		transform:translateX(0px) translateY(0px);
+	}
+	100% {
+		transform:translateX(50px) translateY(0px);
+	}
+}*/

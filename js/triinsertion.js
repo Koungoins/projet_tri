@@ -42,8 +42,8 @@
 		liste.push(parseInt(lis[i].innerText));
 	}
 	
-	console.log(liste);
-	console.log(lis);
+	//console.log(liste);
+	//console.log(lis);
  
 	function dynamicAnimation(index) {
 		//creer une animation dynamique pour l'élement à caser;
@@ -179,8 +179,8 @@
 	}
   
 	start = new Date();
-	chrono();
-	ftimeout = firstloop();
+	//chrono();
+	//ftimeout = firstloop();
 	
 
 })();

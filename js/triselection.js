@@ -44,8 +44,8 @@
 	  liste.push(parseInt(lis[i].innerText));
   }
   
-  console.log(liste);
-  console.log(lis);
+  //console.log(liste);
+  //console.log(lis);
 
 
 
@@ -219,6 +219,6 @@
 	}, 100);
   }
 	start = new Date();
-	chrono();
-	firstloop();
+	//chrono();
+	//firstloop();
 })();
