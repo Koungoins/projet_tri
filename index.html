@@ -10,17 +10,17 @@
 			</div>
 			<form name="choix_tri">
 				<select name="tri">
-				  <option value="selection"  selected="selected" >Tri sélection</option>
-				  <option value="insertion">Tri insertion</option>
-				  <option value="bulle">Tri bulle</option>
+				<option value="tribulle" selected="selected" >Tri bulle</option>
+				  <option value="triselection" >Tri sélection</option>
+				  <option value="triinsertion">Tri insertion</option>				  
 				</select>
 				<INPUT TYPE="button" NAME="bouton" VALUE="Ok" onClick="choix()">
 			 </form>
 		</div>
-		<div>
-			<iframe src="./pages/triinsertion.html" frameborder="0"></iframe>
-			<iframe src="./pages/tribulle.html" frameborder="0"></iframe>
-			<iframe src="./pages/triselection.html" frameborder="0"></iframe>
+		<div id="tricontainer">
+			<iframe id="triselection" src="./pages/triselection.html" frameborder="0"></iframe>
+			<iframe id="tribulle" src="./pages/tribulle.html" frameborder="0"></iframe>
+			<iframe id="triinsertion" src="./pages/triinsertion.html" frameborder="0"></iframe>
 		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
