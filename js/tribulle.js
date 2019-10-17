@@ -126,10 +126,12 @@
 		}, 600)
 	}
 
-	start = new Date();
-	chrono();
-	forloop();
-
 	
+	function startTri(){
+		start = new Date();
+		chrono();
+		forloop();
+	}
 
 })();
+
