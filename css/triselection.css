@@ -26,6 +26,13 @@ ul {
 	overflow: hidden;
 }
 
+input {
+	width : 40px;
+	height : 40px;
+	margin : auto;
+	text-align : center;
+}
+
 li {
 	float: left;
 	top: 50px;

@@ -1,12 +1,8 @@
 (function(){
-	let startTime = 0;
-	let start = 0;
-	let end = 0;
-	let diff = 0;
-	let timerID = 0;
-	let chronoStart=true;
+	
 	function chrono(){
-		setTimeout(function(){			
+		setTimeout(function(){	
+			if(stopTr) {return;}		
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -33,17 +29,6 @@
 		}, 10)
 	}
 	
-	let liste = []
-	let curseur = document.getElementById("curseur");
-	let lis = document.getElementById("tablist").getElementsByTagName("li");
-	
-	//Récupération de la liste UL pour le traitement
-	for (let i = 0;i<lis.length;i++){
-		liste.push(parseInt(lis[i].innerText));
-	}
-	
-	//console.log(liste);
-	//console.log(lis);
  
 	function dynamicAnimation(index) {
 		//creer une animation dynamique pour l'élement à caser;
@@ -83,15 +68,10 @@
 
 	*/
 
-	let i = 1;
-	let j = 0;
-	let jPos = -1;
-	let ftimeout, stimeout;
-	let iTemp = -1;
-	let deplacement = false;
 
 	function secondloop(){
 		return setTimeout(function(){
+			if(stopTr) {return;}
 			console.log("   j:"+j);
 			if(j>=0){
 				if(liste[j] > iTemp)
@@ -153,7 +133,7 @@
   
 	function firstloop(){
 	  return setTimeout(function(){
-		
+		if(stopTr) {return;}
 		if(i >= liste.length){
 			//terminé
 			chronoStart = false;
@@ -178,9 +158,60 @@
 	  }, 100);
 	}
   
-	start = new Date();
-	//chrono();
-	//ftimeout = firstloop();
+
 	
+	function loadListe() {	
+		let listForm = document.getElementById("formListe").getElementsByTagName("input");
+		let ulListe = document.getElementById("tablist");
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		liste = [];
+		ulListe.innerHTML=""		
+		//Récupération de la liste UL pour le traitement
+		let valeur;
+		 for (let a = 0; a<listForm.length; a++){
+			valeur = listForm[a].value;
+			liste.push(parseInt(valeur));
+			let el = document.createElement("li");
+			el.innerHTML = valeur;	
+			ulListe.appendChild(el);
+		}
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		
+		console.log(liste);
+		console.log(lis);	
+	}
+
+	let i = 1;
+	let j = 0;
+	let jPos = -1;
+	let ftimeout, stimeout;
+	let iTemp = -1;
+	let deplacement = false;
+	let startTime = 0;
+	let start = 0;
+	let end = 0;
+	let diff = 0;
+	let timerID = 0;
+	let chronoStart=true;
+	let liste = []	
+	let lis;
+
+	document.getElementById('startButton').onclick = function startTri(){
+		i = 1;		
+		j = 0;
+		jPos = -1;
+		iTemp = -1;		
+		deplacement = false;				
+		start = new Date();
+		stopTr = false;
+		chrono();		
+		loadListe();
+		iMax = liste.length-1;
+		ftimeout = firstloop();
+	}
+
+	document.getElementById('stopButton').onclick = function stopTri(){		
+		stopTr = true;
+	}
 
 })();

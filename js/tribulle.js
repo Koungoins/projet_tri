@@ -2,7 +2,8 @@
 
 
 	function chrono(){
-		setTimeout(function(){			
+		setTimeout(function(){	
+			if(stopTr) {return;}		
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -29,44 +30,6 @@
 		}, 10)
 	}
 
-
-
-	
-	
-	function loadListe() {	
-		let listForm = document.getElementById("formListe").getElementsByTagName("input");
-		let ulListe = document.getElementById("tablist");
-		lis = document.getElementById("tablist").getElementsByTagName("li");
-		liste = [];
-		console.log("taille liste av R:"+lis.length);
-		let a=lis.length;
-		let tl =lis.length; 
-		//Supprimer l'encienne liste
-		while(tl>0 && a>-1) {
-			console.log("Cici : "+lis[a].innerHTML+" taille="+a);
-			lis[a].getElementsByTagName("li").innerHTML="teste"+a;			
-			a--;
-		}
-		
-		console.log("taille liste ap R:"+lis.length);
-		//Récupération de la liste UL pour le traitement
-		let valeur;
-		 for (let a = 0; a<listForm.length; a++){
-			valeur = listForm[a].value;
-			liste.push(parseInt(valeur));
-			let el = document.createElement("li");
-			el.innerHTML = valeur;	
-			ulListe.appendChild(el);
-		}
-		lis = document.getElementById("tablist").getElementsByTagName("li");
-		
-		//console.log(liste);
-		//console.log(lis);	
-	}
-	
-	
-	
-	
  
 	/*
 
@@ -160,6 +123,27 @@
 	let stopTr = false;
 
 
+		
+	function loadListe() {	
+		let listForm = document.getElementById("formListe").getElementsByTagName("input");
+		let ulListe = document.getElementById("tablist");
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		liste = [];
+		ulListe.innerHTML=""		
+		//Récupération de la liste UL pour le traitement
+		let valeur;
+		 for (let a = 0; a<listForm.length; a++){
+			valeur = listForm[a].value;
+			liste.push(parseInt(valeur));
+			let el = document.createElement("li");
+			el.innerHTML = valeur;	
+			ulListe.appendChild(el);
+		}
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		
+		//console.log(liste);
+		//console.log(lis);	
+	}
 	
 	document.getElementById('startButton').onclick = function startTri(){
 		i = 0;		
