@@ -127,7 +127,7 @@
 	}
 
 	
-	function startTri(){
+	document.getElementById('startButton').onclick = function startTri(){
 		start = new Date();
 		chrono();
 		forloop();
