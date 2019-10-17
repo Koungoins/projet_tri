@@ -129,7 +129,8 @@
 		let ulListe = document.getElementById("tablist");
 		lis = document.getElementById("tablist").getElementsByTagName("li");
 		liste = [];
-		ulListe.innerHTML=""		
+		ulListe.innerHTML=""	
+		document.getElementById("fin").innerText = ""	
 		//Récupération de la liste UL pour le traitement
 		let valeur;
 		 for (let a = 0; a<listForm.length; a++){
