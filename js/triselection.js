@@ -83,24 +83,25 @@
 		if(stopTr) {return;}
 		console.log("   j:"+j);
 		if(j <= liste.length-1 ){
-		  if(  liste[j] < jMin ) {
-			jMin = liste[j];
-			jMinIndex = j;
+			if(j)
+				lis[j].classList.add("current_position");
+		  	if(  liste[j] < jMin ) {
+				jMin = liste[j];
+				jMinIndex = j;
 
-			for(let k=0; k<lis.length; k++){
-			  lis[k].classList.remove("simpleright");
-			  lis[k].classList.remove("current_min"); 
-			}
-			lis[j].classList.add("current_min");
-		  }
-		  if (j !== 0){
-			lis[j-1].classList.remove("current_position");
-		  }
-		  if(j)
-			lis[j].classList.add("current_position");
-		  j++;
+				for(let k=0; k<lis.length; k++){
+			  	lis[k].classList.remove("simpleright");
+			  	lis[k].classList.remove("current_min"); 
+				}
+				lis[j].classList.add("current_min");
+		  	}
+		  	if (j !== 0){
+				lis[j-1].classList.remove("current_position");
+		  	}
 
-		  secondloop();
+		  	j++;
+
+		  	secondloop();
 		}
 		else if(j === liste.length){
 		  //le minimum a été trouve avant ce tour, on se laisse encore deux tour pour les anims et l'algo de tri
@@ -236,6 +237,7 @@
 		stopTr = false;
 		jMinIndex = -1;
 		jMin = Number.POSITIVE_INFINITY;
+		chronoStart = true;
 		chrono();		
 		loadListe();
 		iTime = (liste.length) *1000;
