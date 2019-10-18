@@ -4,6 +4,45 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+body {
+    height: 100%;
+}
+
 p {
   font-size: 14px;
+}
+
+div.tete {
+    display: inline-block;
+    width: 49%;
+    vertical-align: middle;
+}
+
+div.tete h1, h2, h3 { 
+    color: white;
+    font-weight: bolder;
+    padding-left: 10%;
+    text-shadow: 0 0 3px #3C4245, -1px -1px 3px #3C4245, 1px 1px 3px #3C4245, 1px 1px 6px violet;
+}
+
+
+h1 {
+    font-size: 42spx;
+}
+
+div.item2 {
+    display: inline-block;
+    width: 100%;
+}
+
+/* le seul boutton de l'accueil */
+button {
+    width: 20%;
+    height: 60px;
+    font-size: 20px;
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    margin-bottom: -30px;
+    margin-left: -10%;
 }
