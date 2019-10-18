@@ -152,6 +152,7 @@
 		namechange = false;
 		start = new Date();
 		stopTr = false;
+		chronoStart = true;
 		chrono();		
 		loadListe();
 		iMax = liste.length-1;

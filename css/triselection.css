@@ -1,3 +1,14 @@
+/*
+	primary item color: #F0134D
+	secondary item color: #FF6F5E
+	third item color: #F5F0E3
+	4th  color: #40BFC1
+
+	text, border: #3C4245;
+
+	On pourrait utiliser les variables CSS3 pour cela
+*/
+
 body {
 	padding-top: 50px;
 	text-align: center;
@@ -6,7 +17,6 @@ body {
 }
 h1, h2 {
 	display: inline-block;
-	background: #fff;
 }
 h1 {
 	font-size: 30px;
@@ -35,34 +45,31 @@ input {
 
 li {
 	float: left;
+	width: 50px;
+	height: 50px;
 	top: 50px;
-	width: 48px;
-	height: 48px;
-	background-color: red;
-	border: solid black 1px;
+	background-color: #FF6F5E;
+	border: solid #3C4245 1px;
 	display: block;
-	position: relative;   
-	border-radius: 6px;
-	box-shadow: 0 0 12px 0 #777;  	
-}
+	font-size: 110%;
+	position: relative;  
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: 0 0 1px 0 #3C4245;  
+  }
 
 .current_position {
-	background-color: green;
-	border: solid red 1px;
+	background-color: #F5F0E3;
+	border: solid #3C4245 2px;
 }
 
 .current_min {
-	background-color: grey;
-	border: solid white 1px;
-}
-
-.position_grand {
-	background-color: grey;
-	border: solid green 1px;
+	background-color: #40BFC1;
+	border: solid #3C4245 1px;
 }
 
 .triee {
-	background-color: white;
+	background-color: #F0134D;
 }
 
 .tab {
