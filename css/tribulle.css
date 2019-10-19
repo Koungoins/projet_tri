@@ -1,14 +1,3 @@
-/*
-	primary item color: #F0134D
-	secondary item color: #FF6F5E
-	third item color: #F5F0E3
-	4th  color: #40BFC1
-
-	text, border: #3C4245;
-
-	On pourrait utiliser les variables CSS3 pour cela
-*/
-
 body {
 	padding-top: 50px;
 	text-align: center;
@@ -47,22 +36,20 @@ ul {
 
 li {
   float: left;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   top: 50px;
-  background-color: #FF6F5E;
-  border: solid #3C4245 1px;
+  background-color: red;
+  border: solid black 1px;
   display: block;
-  font-size: 110%;
   position: relative;  
-  border-radius: 4px;
-  box-sizing: border-box;
-  box-shadow: 0 0 1px 0 #3C4245;  
+  border-radius: 6px;
+  box-shadow: 0 0 12px 0 #777;  
 }
 
 .current_position {
-	background-color: #F5F0E3;
-	border: solid #3C4245 2px;
+	background-color: green;
+	border: solid red 1px;
 }
 
 
@@ -71,12 +58,6 @@ li {
 	border: solid red 1;
 }
 
-input {
-	width : 40px;
-	height : 40px;
-	margin : auto;
-	text-align : center;	
-}
 
 .tab {
 	margin: 1em;
@@ -94,7 +75,7 @@ li.animate-rgt {
 }
 
 .triee {
-	background-color: #F0134D;
+	background-color: white;
 }
 
 

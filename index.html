@@ -1,39 +1,26 @@
 <html>
 	<head>
-		<!--link rel="stylesheet" type="text/css" href="css/main.css"-->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
-	<body style="width:100%">
+	<body>
 		<div class="container-fluid">
 			<div>
 				<h1>Les tris.</h1>
-				<h3>Animation p&eacute;dagogique</h2>
+				<h3>Animation pédagogique</h2>
 			</div>
-			
+			<form name="choix_tri">
+				<select name="tri">
+				<option value="tribulle" selected="selected" >Tri bulle</option>
+				  <option value="triselection" >Tri sélection</option>
+				  <option value="triinsertion">Tri insertion</option>				  
+				</select>
+				<INPUT TYPE="button" NAME="bouton" VALUE="Ok" onClick="choix()">
+			 </form>
 		</div>
-		<div id="tricontainer001" style="width:100%;">
-			<table style="width:100%" >
-				<tr >
-				  <td style="width:100%"> 
-					<iframe width="1300"  height="330" style="width:100%" id="triselection00" src="./pages/triselection.html" frameborder="0"></iframe>
-			          </td>
-				  
-			       </tr>
-<tr>
-				  <td> 
-				    <iframe width="800" height="330" style="width:100%" id="triinsertion00" src="./pages/triinsertion.html" frameborder="0"></iframe>
-			          </td>
-				  
-			       </tr>
-                               <tr style="width:100%;background-color:silver;">
-				  <td> <iframe width="800" height="330" style="width:100%" id="tribulle00" src="./pages/tribulle.html" frameborder="0"></iframe>
-			          </td>
-				 
-			       </tr>
-                               
-			</table>
-			
-			
-			
+		<div id="tricontainer">
+			<iframe id="triselection" src="./pages/triselection.html" frameborder="0"></iframe>
+			<iframe id="tribulle" src="./pages/tribulle.html" frameborder="0"></iframe>
+			<iframe id="triinsertion" src="./pages/triinsertion.html" frameborder="0"></iframe>
 		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
