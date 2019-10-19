@@ -199,7 +199,7 @@
 		chronoStart = false;
 		//tri terminé
 		console.log("tri terminé");
-		document.getElementById("fin").innerText="Terminé";
+		document.getElementById("fin").innerText="Fin du tri;";
 		return;
 	  }
 	  
