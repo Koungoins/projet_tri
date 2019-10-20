@@ -2,162 +2,37 @@
 	<head>
 		<!-- <meta http-equiv="Content-Security-Policy" content="style-src 'unsafe-inline';"> -->
 		<link rel="stylesheet" type="text/css" href="../css/triselection.css" >
-		<script type="text/javascript">
 		
-
-        
-		function validateForm() {
-			//alert("Validation");
-			var inputData = [this.document.forms["formulaire"]["data_1"].value,
-							 this.document.forms["formulaire"]["data_2"].value,
-							 this.document.forms["formulaire"]["data_3"].value,
-							 this.document.forms["formulaire"]["data_4"].value,
-							 this.document.forms["formulaire"]["data_5"].value,
-							 this.document.forms["formulaire"]["data_6"].value,
-							 this.document.forms["formulaire"]["data_7"].value,
-							 this.document.forms["formulaire"]["data_8"].value,
-							 this.document.forms["formulaire"]["data_9"].value,
-							 this.document.forms["formulaire"]["data_10"].value] ;
-			errorMessage="";
-			resultat=false;
-
-			for (let index = 0; index < inputData.length; index++) {
-				
-				 const element = inputData[index];
-
-				 
-				 if (element.trim().length == 0) {
-					errorMessage+= "Le nombre numero "+(index+1)+"  ne doit est vide !! \n";
-					
-
-					resultat= false;
-					
-				}	
-			}
-			
-			if(errorMessage.length>0){ 
-				
-				//resultat= false;
-				alert(errorMessage);
-			}else{
-
-
-
-			}
-			
-
-			return resultat;
-		} 
-		function getUrlVars() {
-			var vars = {};
-			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-				vars[key] = value;
-			});
-			return vars;
-		}
-
-
-		var data_1=9,data_2=7,data_3=6,data_4=0,data_5=1,data_6=3,data_7=2,data_8=4,data_9=5,data_10=8;
-        
-		
-		
-
-
-		if(getUrlVars()["data_1"]!=undefined && getUrlVars()["data_1"].trim().length>0 && 
-		   getUrlVars()["data_2"]!=undefined && getUrlVars()["data_2"].trim().length>0 &&
-		   getUrlVars()["data_3"]!=undefined && getUrlVars()["data_3"].trim().length>0 && 
-		   getUrlVars()["data_4"]!=undefined && getUrlVars()["data_4"].trim().length>0 && 
-		   getUrlVars()["data_5"]!=undefined && getUrlVars()["data_5"].trim().length>0 && 
-		   getUrlVars()["data_6"]!=undefined && getUrlVars()["data_6"].trim().length>0 && 
-		   getUrlVars()["data_7"]!=undefined && getUrlVars()["data_7"].trim().length>0 && 
-		   getUrlVars()["data_8"]!=undefined && getUrlVars()["data_8"].trim().length>0 && 
-		   getUrlVars()["data_9"]!=undefined && getUrlVars()["data_9"].trim().length>0 && 
-		   getUrlVars()["data_10"]!=undefined && getUrlVars()["data_10"].trim().length>0 ){
-
-		
-
-			data_1=getUrlVars()["data_1"];
-			data_2=getUrlVars()["data_2"];
-			data_3=getUrlVars()["data_3"];
-			data_4=getUrlVars()["data_4"];
-			data_5=getUrlVars()["data_5"];
-			data_6=getUrlVars()["data_6"];
-			data_7=getUrlVars()["data_7"];
-			data_8=getUrlVars()["data_8"];
-			data_9=getUrlVars()["data_9"];
-			data_10=getUrlVars()["data_10"];
-
-			
-
-		}
-
-		var listNombres=[ data_1,data_2,data_3,data_4,data_5,data_6,data_7,data_8,data_9,data_10];
-
-		
-		</script>
 	</head>
 	<body>
-		<div class="container-fluid00" style="width:100%;">
-		
-		<table style="width: 100%;">
-			<tr>
-			 	<td style="width:55%;">   
-					 <div id="titre">Tri s&eacute;lection</div>
-					<div class="tab">
-						<ul id="tablist">  
-
-					
-									<script type="text/javascript">
-										for (let index = 0; index < listNombres.length; index++) {
-											const element = listNombres[index];
-											currentLI=this.document.createElement("li");
-											
-											currentLI.innerHTML=element;
-
-											this.document.getElementById("tablist").appendChild(currentLI);
-											//alert(element);
-										}
-									   	
-									</script> 
-							
-							
-						</ul>
+			<div class="container-fluid">
+				<div class="div_form"> 
+					<div  id="titre">Tri à bulle</div>
+					<div  id="description">
+						Le blabla sur le tri ici me semble être une bonne place</br>
+						Savoir ce qui va se passer avant même de saisir la liste.
 					</div>
-
-
-				<div id="fin"></div>
-				<div id="chronotime"></div>
-
-
-
-
-				</td>
-				<td >
-
-					<form name="formulaire" action="" method="GET">
-						<input type="number" name="data_1" value="data_1">
-						<input type="number" name="data_2" value="data_2">
-						<input type="number" name="data_3" value="data_3">
-						<input type="number" name="data_4" value="data_4">
-						<input type="number" name="data_5" value="data_5">
-						<input type="number" name="data_6" value="data_6">
-						<input type="number" name="data_7" value="data_7">
-						<input type="number" name="data_8" value="data_8">
-						<input type="number" name="data_9" value="data_9">
-						<input type="number" name="data_10" value="data_10">
-						<br><br>
-						<INPUT TYPE="submit" NAME="bouton" VALUE="Lancer le Trie" onClick="validateForm()">
-					 </form>
-
-				</td>
-			</tr>
-
-		</table>		
-		
-		
-		
-		</div>
-		
+					<form id="formListe">			  
+						<input type="number" value="9">	  
+						<input type="number" value="6">
+						<input type="number" value="8">
+						<input type="number" value="7">
+						<input type="number" value="2">
+						<input type="number" value="4">			  
+					</form>
+					<div id="boutons">	
+						<button id="startButton" type="button">Start</button>
+						<button id="stopButton" type="button">Stop</button>
+					</div>			
+				</div>
+				<div class="div_form">			
+					<div class="tab">
+						<ul id="tablist"></ul>
+					</div>
+					<div id="fin"></div>
+					<div id="chronotime"></div>		
+				</div>
+			</div>
 		<script type="text/javascript" src="../js/triselection.js" ></script>
 	</body>
 </html>

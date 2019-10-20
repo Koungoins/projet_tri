@@ -33,17 +33,34 @@ span {
 	top:10;
 }
 
+#titre {	
+	margin-bottom : 30px;
+}
 
 
+#description {
+	margin-bottom : 30px;
+}
 ul {
   list-style-type: none;
-  margin: 2em;
+  margin: auto;
   padding: 0;
   height : 150;
   width: 500;
   overflow: hidden;
 
 }
+
+.div_form {
+  padding-top: 50px;
+  float: left;
+  width: 50%;
+  height: 300px;
+  display: block;
+  position: relative;  
+  box-shadow: 0 0 1px 0 #3C4245; 
+}
+
 
 li {
   float: left;
@@ -79,7 +96,7 @@ input {
 }
 
 .tab {
-	margin: 1em;
+	//margin: 1em;
 }
 
 li.animate-lft {

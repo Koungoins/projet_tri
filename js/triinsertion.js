@@ -1,4 +1,6 @@
 (function(){
+
+
 	let startTime = 0;
 	let start = 0;
 	let end = 0;
@@ -6,7 +8,8 @@
 	let timerID = 0;
 	let chronoStart=true;
 	function chrono(){
-		setTimeout(function(){			
+		setTimeout(function(){	
+			if(stopTr) {return;}		
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -32,155 +35,218 @@
 			}
 		}, 10)
 	}
-	
-	let liste = []
-	let curseur = document.getElementById("curseur");
-	let lis = document.getElementById("tablist").getElementsByTagName("li");
-	
-	//Récupération de la liste UL pour le traitement
-	for (let i = 0;i<lis.length;i++){
-		liste.push(parseInt(lis[i].innerText));
-	}
-	
-	console.log(liste);
-	console.log(lis);
- 
-	function dynamicAnimation(index) {
-		//creer une animation dynamique pour l'élement à caser;
-
-		let style = document.createElement('style');
-		style.type = 'text/css';
-		let keyFrames = '\
-		.move_place {\
-		  animation: anim_left 0.5s;\
-		  animation-fill-mode: forwards;\
-		}\
-		  \
-		@keyframes anim_left {\
-			0% {\
-				transform: translateX(0px) translateY(0px);\
-			}\
-			20% {\
-				transform: translateX(0px) translateY(-25px);\
-			}\
-			60% {\
-				transform: translateX(DYNC_VAL) translateY(-25px);\
-			}\
-			100% {\
-				transform: translateX(DYNC_VAL) translateY(0px);\
-			}\
-		}\
-		';
-		style.innerHTML = keyFrames.replace(/DYNC_VAL/g, "-"+(index*50)+"px");
-		document.getElementsByTagName('head')[0].appendChild(style);
-	
-		return "move_place";
-	  }
- 
-	/*
-
-		TRI INSERTION
-
-	*/
-
-	let i = 1;
-	let j = 0;
-	let jPos = -1;
-	let ftimeout, stimeout;
-	let iTemp = -1;
-	let deplacement = false;
-
-	function secondloop(){
-		return setTimeout(function(){
-			console.log("   j:"+j);
-			if(j>=0){
-				if(liste[j] > iTemp)
-					lis[j].classList.add("reverse");
-				lis[j+1].classList.remove("reverse");
-			}	
-			if(j >=0 && liste[j] > iTemp){
-				liste[j+1] = liste[j];
-				j--;
-				secondloop();
-			}else if(deplacement){
-				//dernier tour de boucle. on clear les animations et on change le html
-				for(let m=0; m<lis.length; m++){
-					lis[m].classList.remove("simpleright");
-					lis[m].classList.remove("move_place");
-					lis[m].classList.remove("current_position");
-					lis[m].classList.remove("reverse");
-				}
-				console.log("debug: jPos:", jPos)
-				const jText = lis[i].innerText;
-				for(let n=i-1; n>jPos-1; n--){
-					lis[n+1].innerText = lis[n].innerText
-				}
-				lis[jPos].innerText = jText;
-				i++;
-				deplacement = false;
-
-				//ne pas attendre pour la prochaine boucle; -- ne fonctionne pas
-				clearTimeout(ftimeout);
-				ftimeout  = firstloop();
-				return;
-			} 
-			else if( j === -1 || liste[j] <= iTemp) {
-				console.log("ne doit s'afficher qu'une seul fois");
-				//tri
-				liste[j+1] = iTemp;
-				jPos = j+1;
-				const index = i - (j+1);
-
-				//l'élement est deja a la bonne position
-				if(index === 0){
-
-				}
-				else {
-					// on anime le déplacement 
-					const anim = dynamicAnimation( index );
-					lis[i].classList.add(anim);
-					for(let k=i-1; k>=j+1; k--){
-						lis[k].classList.add("simpleright");
-					}
-				}
-				//i++;
-				j--;
-				deplacement = true;
-				secondloop();
-			}
-		}, 600)
-	}
   
-	function firstloop(){
+
+  function dynamicAnimation(pos) {
+	//creer une animation dynamique pour l'élement à caser;
+
+	let style = document.createElement('style');
+	style.type = 'text/css';
+	let keyFrames = '\
+	.move_min  {\
+	  animation: move 0.5s;\
+	  animation-fill-mode: forwards;\
+	}\
+	  \
+	@keyframes move {\
+		0% {\
+			transform: translateX(0px) translateY(0px);\
+		}\
+		20% {\
+		  transform: translateX(0px) translateY(-25px);\
+		}\
+		60% {\
+		  transform: translateX(DYNC_VAL) translateY(-25px);\
+		}\
+		100% {\
+		  transform: translateX(DYNC_VAL) translateY(0px);\
+		}\
+	}\
+	';
+	style.innerHTML = keyFrames.replace(/DYNC_VAL/g, "-"+(pos*50)+"px");
+	document.getElementsByTagName('head')[0].appendChild(style);
+
+	return "move_min";
+  }
+ 
+  /*
+
+	TRI INSERTION
+
+  */
+
+ 
+
+
+  function secondloop(){
 	  return setTimeout(function(){
-		
-		if(i >= liste.length){
-			//terminé
-			chronoStart = false;
-			console.log('terminé');
-			console.log(liste);
-			document.getElementById("fin").innerText="Terminé";
-			return;
+		if(stopTr) {return;}
+		console.log("   j:"+j);
+		if(j <= liste.length-1 ){
+			if(j)
+				lis[j].classList.add("current_position");
+		  	if(  liste[j] < jMin ) {
+				jMin = liste[j];
+				jMinIndex = j;
+
+				for(let k=0; k<lis.length; k++){
+			  	lis[k].classList.remove("simpleright");
+			  	lis[k].classList.remove("current_min"); 
+				}
+				lis[j].classList.add("current_min");
+		  	}
+		  	if (j !== 0){
+				lis[j-1].classList.remove("current_position");
+		  	}
+
+		  	j++;
+
+		  	secondloop();
 		}
+		else if(j === liste.length){
+		  //le minimum a été trouve avant ce tour, on se laisse encore deux tour pour les anims et l'algo de tri
+		  
+		  //avant dernier tour de boucle, on fait les anims
+		  //si jMinIndex = i pas besoin de le changer alors
 
-		console.log(liste);
-		
-		iTemp = liste[i];
-		j = i-1;
+		  console.log("ne doit apparaitre qu'une seul fois (i:"+i+")");
+		  for(let k=i; k<jMinIndex; k++){
+			lis[k].classList.add("simpleright"); 
+		  }
 
-		console.log('i:', i, " iTemp:", iTemp);
+		  const dyn = dynamicAnimation(Number(jMinIndex-i));
 
-		lis[i].classList.add("current_position")
+		  lis[jMinIndex].classList.add(""+dyn);
 
-		clearTimeout(stimeout);
-		stimeout = secondloop();
-		
-	  }, 100);
-	}
-  
-	start = new Date();
-	chrono();
-	ftimeout = firstloop();
+
+		  
+		  j++;
+		  secondloop();
+		  //clear ici aussi pour plus de fluidité
+
+		}
+		else {
+		  // dernier tour de boucle - x ms apreès l'avant dernier - on peut clear les animation
+		  //on change le tableau et le html en même temps
+		  //algo du tri select ici
+		  const temp = liste[jMinIndex];
+		  const htemptxt = lis[jMinIndex].innerText;
+		  //console.log("H", htemp.innerText)
+		  for(let v=jMinIndex; v>=i; v--){
+			if(v === i){
+			  liste[v] = temp;
+			  lis[v].innerText = htemptxt;
+			  //console.log("V", lis[v].innerText, "H2", htemp.innerText);
+			}  
+			else {
+			  liste[v] = liste[v-1];
+			  lis[v].innerText = lis[v-1].innerText;
+			}
+		  }
+
+		  //on considère donc l'élèments comme trié
+		  lis[i].classList.add("triee");
+
+		  i++;
+		  for(let k=0; k<lis.length; k++){
+			lis[k].classList.remove("simpleright");
+			lis[k].classList.remove("move_to_pos1");
+			lis[k].classList.remove("move_min");
+			lis[k].classList.remove("current_min");
+			lis[k].classList.remove("current_position");
+		  }
+
+		  //on appele la prochaine i loop ici directement
+		  	console.log("i:"+i);
+			console.log(liste, lis);
+			j=i;
+			jMin = Number.POSITIVE_INFINITY;
+			jMinIndex = -1;
+			firstloop();
 	
+		}
+		
+	  }, 600)
+  }
 
+  function firstloop(){
+	return setTimeout(function(){
+	  if(stopTr) {return;}
+	  if(i>=liste.length){
+		chronoStart = false;
+		//tri terminé
+		console.log("tri terminé");
+		document.getElementById("fin").innerText="Terminé";
+		return;
+	  }
+	  
+	  
+	  for(let k=0; k<lis.length; k++){
+		lis[k].classList.remove("simpleright");
+		lis[k].classList.remove("move_to_pos1");
+		lis[k].classList.remove("move_min");
+		lis[k].classList.remove("current_min");
+		lis[k].classList.remove("current_position");
+	  }
+	  
+	  clearTimeout(stimeout);
+	  stimeout = secondloop();
+
+	  
+	}, 100);
+  }
+
+	function loadListe() {	
+		let listForm = document.getElementById("formListe").getElementsByTagName("input");
+		let ulListe = document.getElementById("tablist");
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		liste = [];
+		ulListe.innerHTML=""		
+		//Récupération de la liste UL pour le traitement
+		let valeur;
+		for (let a = 0; a<listForm.length; a++){
+			valeur = listForm[a].value;
+			liste.push(parseInt(valeur));
+			let el = document.createElement("li");
+			el.innerHTML = valeur;	
+			ulListe.appendChild(el);
+		}
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		
+		console.log(liste);
+		console.log(lis);	
+	}
+
+	let liste = []	
+	let lis;
+	let iTime = (liste.length) *1000;
+	let jTime = 1 * 1000;
+	let i = 0;
+	let j = 0;  
+	let jMin = Number.POSITIVE_INFINITY;
+	let jMinIndex = -1;
+  
+	let ftimeout, stimeout;
+  
+
+	document.getElementById('startButton').onclick = function startTri(){
+		console.log("dans start selection");
+		i = 0;	
+		j = 0;	
+		start = new Date();
+		stopTr = false;
+		jMinIndex = -1;
+		jMin = Number.POSITIVE_INFINITY;
+		chronoStart = true;
+		chrono();		
+		loadListe();
+		iTime = (liste.length) *1000;
+		iMax = liste.length-1;
+		ftimeout = firstloop();
+	}
+
+	document.getElementById('stopButton').onclick = function stopTri(){		
+		stopTr = true;
+	}
+	
 })();
