@@ -20,9 +20,8 @@ button {
     cursor: pointer;
   
   /* Just for presentation */  
-    display: block;
+    display: auto;
     margin: 0 auto;
-    margin-bottom: 20px;
   }
   
   /* Style customizé */

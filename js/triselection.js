@@ -8,7 +8,8 @@
 	let timerID = 0;
 	let chronoStart=true;
 	function chrono(){
-		setTimeout(function(){			
+		setTimeout(function(){	
+			if(stopTr) {return;}		
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -35,19 +36,6 @@
 		}, 10)
 	}
   
-  let liste = []
-  let curseur = document.getElementById("curseur");
-  let lis = document.getElementById("tablist").getElementsByTagName("li");
-  
-  //Récupération de la liste UL pour le traitement
-   for (let i = 0;i<lis.length;i++){
-	  liste.push(parseInt(lis[i].innerText));
-  }
-  
-  console.log(liste);
-  console.log(lis);
-
-
 
   function dynamicAnimation(pos) {
 	//creer une animation dynamique pour l'élement à caser;
@@ -87,44 +75,33 @@
 
   */
 
-  let iTime = (liste.length) *1000
-  let jTime = 1 * 1000;
-  let i = 0;
-  let j = 0;
-
-  let jMin = Number.POSITIVE_INFINITY;
-  let jMinIndex = -1;
-
-  let ftimeout, stimeout;
-
-  let changed = false;
-  let namechange = false;
-
-  let current;
+ 
 
 
   function secondloop(){
 	  return setTimeout(function(){
+		if(stopTr) {return;}
 		console.log("   j:"+j);
 		if(j <= liste.length-1 ){
-		  if(  liste[j] < jMin ) {
-			jMin = liste[j];
-			jMinIndex = j;
+			if(j)
+				lis[j].classList.add("current_position");
+		  	if(  liste[j] < jMin ) {
+				jMin = liste[j];
+				jMinIndex = j;
 
-			for(let k=0; k<lis.length; k++){
-			  lis[k].classList.remove("simpleright");
-			  lis[k].classList.remove("current_min"); 
-			}
-			lis[j].classList.add("current_min");
-		  }
-		  if (j !== 0){
-			lis[j-1].classList.remove("current_position");
-		  }
-		  if(j)
-			lis[j].classList.add("current_position");
-		  j++;
+				for(let k=0; k<lis.length; k++){
+			  	lis[k].classList.remove("simpleright");
+			  	lis[k].classList.remove("current_min"); 
+				}
+				lis[j].classList.add("current_min");
+		  	}
+		  	if (j !== 0){
+				lis[j-1].classList.remove("current_position");
+		  	}
 
-		  secondloop();
+		  	j++;
+
+		  	secondloop();
 		}
 		else if(j === liste.length){
 		  //le minimum a été trouve avant ce tour, on se laisse encore deux tour pour les anims et l'algo de tri
@@ -194,12 +171,12 @@
 
   function firstloop(){
 	return setTimeout(function(){
-	  
+	  if(stopTr) {return;}
 	  if(i>=liste.length){
 		chronoStart = false;
 		//tri terminé
 		console.log("tri terminé");
-		document.getElementById("fin").innerText="Fin du tri;";
+		document.getElementById("fin").innerText="Terminé";
 		return;
 	  }
 	  
@@ -218,7 +195,58 @@
 	  
 	}, 100);
   }
-	start = new Date();
-	chrono();
-	firstloop();
+
+	function loadListe() {	
+		let listForm = document.getElementById("formListe").getElementsByTagName("input");
+		let ulListe = document.getElementById("tablist");
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		liste = [];
+		ulListe.innerHTML=""		
+		//Récupération de la liste UL pour le traitement
+		let valeur;
+		for (let a = 0; a<listForm.length; a++){
+			valeur = listForm[a].value;
+			liste.push(parseInt(valeur));
+			let el = document.createElement("li");
+			el.innerHTML = valeur;	
+			ulListe.appendChild(el);
+		}
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		
+		console.log(liste);
+		console.log(lis);	
+	}
+
+	let liste = []	
+	let lis;
+	let iTime = (liste.length) *1000;
+	let jTime = 1 * 1000;
+	let i = 0;
+	let j = 0;  
+	let jMin = Number.POSITIVE_INFINITY;
+	let jMinIndex = -1;
+  
+	let ftimeout, stimeout;
+  
+
+	document.getElementById('startButton').onclick = function startTri(){
+		console.log("dans start selection");
+		i = 0;	
+		j = 0;	
+		start = new Date();
+		stopTr = false;
+		jMinIndex = -1;
+		jMin = Number.POSITIVE_INFINITY;
+		chronoStart = true;
+		chrono();		
+		loadListe();
+		iTime = (liste.length) *1000;
+		iMax = liste.length-1;
+		ftimeout = firstloop();
+	}
+
+	document.getElementById('stopButton').onclick = function stopTri(){		
+		stopTr = true;
+	}
+	
 })();
