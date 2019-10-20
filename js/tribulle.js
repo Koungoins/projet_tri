@@ -101,7 +101,7 @@
 				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
 			}
 		
-		}, 600)
+		}, 700)
 	}
 
 
