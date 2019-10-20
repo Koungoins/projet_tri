@@ -24,4 +24,9 @@ iframe {
 
 h1, h3 {
 	color: #3C4245;
+	text-align: center;
+}
+
+form.ftri {
+	text-align: center;
 }
