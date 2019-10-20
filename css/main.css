@@ -9,16 +9,15 @@
 	On pourrait utiliser les variables CSS3 pour cela
 */
 body {
-	background: rgb(64,191,193);
-	background: linear-gradient(0deg, rgba(64,191,193,1) 0%, rgba(97,202,204,1) 6%, rgba(103,204,206,1) 10%, rgba(117,209,210,1) 14%, rgba(160,223,224,1) 25%, rgba(255,255,255,1) 100%);
+	background: url('white-sand.png')
 }
 
 iframe {	
 	display: none;
 	width: 98%;
 	height: 50%;
-	border: #bbb solid 2px;
-	border-radius: 15px;
+	border: #ddd solid 2px;
+	border-radius: 5px;
 	margin: 10px;
 	transform: scale(0.90);
 }
