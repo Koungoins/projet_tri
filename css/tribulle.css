@@ -9,10 +9,12 @@
 	On pourrait utiliser les variables CSS3 pour cela
 */
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
 body {
 	padding-top: 50px;
 	text-align: center;
-	font-family: monaco, monospace;
+	font-family: 'Open Sans', sans-serif;
 	background-size: cover;
 }
 h1, h2 {
@@ -41,12 +43,13 @@ span {
 #description {
 	margin-bottom : 30px;
 }
+
 ul {
   list-style-type: none;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
   height : 150;
-  width: 500;
+
   overflow: hidden;
 
 }
@@ -77,6 +80,29 @@ li {
   box-shadow: 0 0 1px 0 #3C4245;  
 }
 
+input[type="number"] {
+	
+	width : 40px;
+	height : 40px;
+	text-align: center;
+	border-radius: 4px;
+	font-size: 16px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+	margin: auto;
+	border: none;
+	box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+	border-bottom: 4px solid #3C4245;
+}
+
+/* Enlever les fleches */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+
 .current_position {
 	background-color: #F5F0E3;
 	border: solid #3C4245 2px;
@@ -88,15 +114,11 @@ li {
 	border: solid red 1;
 }
 
-input {
-	width : 40px;
-	height : 40px;
-	margin : auto;
-	text-align : center;	
-}
-
 .tab {
-	//margin: 1em;
+	/*margin: 1em;
+	border: 1px solid black;*/
+	display: table;
+	margin: 0 auto;
 }
 
 li.animate-lft {
