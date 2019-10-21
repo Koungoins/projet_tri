@@ -1,13 +1,9 @@
 (function(){
-	
-	let startTime = 0;
-	let start = 0;
-	let end = 0;
-	let diff = 0;
-	let timerID = 0;
-	let chronoStart=true;
+
+
 	function chrono(){
-		setTimeout(function(){			
+		setTimeout(function(){	
+			if(stopTr) {return;}		
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -34,21 +30,6 @@
 		}, 10)
 	}
 
-
-
-	let liste = []
-	let curseur = document.getElementById("curseur");
-	let lis = document.getElementById("tablist").getElementsByTagName("li");
-	
-	//Récupération de la liste UL pour le traitement
-	 for (let i = 0;i<lis.length;i++){
-		liste.push(parseInt(lis[i].innerText));
-	}
-	
-	console.log(liste);
-	console.log(lis);
-	
-	
  
 	/*
 
@@ -56,14 +37,11 @@
 
 	*/
 
-	let i = 0;
-	let iMax = liste.length-1;
-	let changed = false;
-	let namechange = false;
-	let v1, v2;
+	
 
 	function forloop() {
 		setTimeout(function(){
+			if(stopTr) {return;}
 			console.log(liste);
 			console.log(lis);
 			//HTML Suppression du style de selection
@@ -123,14 +101,66 @@
 				document.getElementById("fin").innerText="Aucun changement ce tour ci. Le tri est donc terminé."
 			}
 		
-		}, 600)
+		}, 700)
 	}
 
+
 	
-	function startTri(){
+	let startTime = 0;
+	let start = 0;
+	let end = 0;
+	let diff = 0;
+	let timerID = 0;
+	let chronoStart=true;
+	let i = 0;
+	let iMax = 0;
+	let changed = false;
+	let namechange = false;
+	let v1, v2;	
+	let liste = []
+	let curseur = document.getElementById("curseur");
+	let lis;
+	let stopTr = false;
+
+
+		
+	function loadListe() {	
+		let listForm = document.getElementById("formListe").getElementsByTagName("input");
+		let ulListe = document.getElementById("tablist");
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		liste = [];
+		ulListe.innerHTML=""	
+		document.getElementById("fin").innerText = ""	
+		//Récupération de la liste UL pour le traitement
+		let valeur;
+		 for (let a = 0; a<listForm.length; a++){
+			valeur = listForm[a].value;
+			liste.push(parseInt(valeur));
+			let el = document.createElement("li");
+			el.innerHTML = valeur;	
+			ulListe.appendChild(el);
+		}
+		lis = document.getElementById("tablist").getElementsByTagName("li");
+		
+		//console.log(liste);
+		//console.log(lis);	
+	}
+	
+	document.getElementById('startButton').onclick = function startTri(){
+		i = 0;		
+		changed = false;
+		namechange = false;
 		start = new Date();
-		chrono();
+		stopTr = false;
+		chronoStart = true;
+		chrono();		
+		loadListe();
+		iMax = liste.length-1;
 		forloop();
+	}
+
+	document.getElementById('stopButton').onclick = function stopTri(){		
+		stopTr = true;
 	}
 
 })();
