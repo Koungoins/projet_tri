@@ -8,13 +8,15 @@
 
 	On pourrait utiliser les variables CSS3 pour cela
 */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
 body {
 	padding-top: 50px;
 	text-align: center;
-	font-family: monaco, monospace;
+	font-family: 'Open Sans', sans-serif;
 	background-size: cover;
 }
+
 h1, h2 {
 	display: inline-block;
 }
