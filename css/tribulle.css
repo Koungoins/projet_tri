@@ -19,7 +19,6 @@ body {
 }
 h1, h2 {
 	display: inline-block;
-	background: #fff;
 }
 h1 {
 	font-size: 30px;
@@ -49,9 +48,7 @@ ul {
   margin: 0 auto;
   padding: 0;
   height : 150;
-
   overflow: hidden;
-
 }
 
 .div_form {
