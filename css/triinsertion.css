@@ -101,13 +101,13 @@ li {
 	border-bottom: 4px solid #a3473c;
 }
   
-li.current_position {
+li.reverse {
 	background: linear-gradient(to bottom, #FCF9F0 0%, #F5F0E3 100%);
 	border-bottom: 4px solid #8c8677;
 }
   
   
-li.current_min {
+li.current_position {
 	background: linear-gradient(to bottom, #4AC0C2 0%, #40BFC1 100%);
 	border-bottom: 4px solid rgb(37, 109, 110);
 }
