@@ -7,9 +7,11 @@
 	let diff = 0;
 	let timerID = 0;
 	let chronoStart=true;
+	// la fonction chronometre permet d'afficher le compteur chrono
+	// ****************début de la fonction chronometre ******************
 	function chrono(){
 		setTimeout(function(){	
-			if(stopTr) {return;}		
+			if(stopTr) {return;}	// Si stop tri (stopTr) alors on arrête le chrono	
 			end = new Date();
 			diff = end - start;
 			diff = new Date(diff);
@@ -29,7 +31,9 @@
 			else if(msec < 100){
 			  msec = "0" +msec;
 			}
+			// Il recupère l'élément HTML du chrono et affiche le chronometre sur la page
 			document.getElementById("chronotime").innerHTML = min + ":" + sec + ":" + msec;
+			//On rappel cette fonction si le chrono est toujours start (=vrai)
 			if(chronoStart) {
 				chrono();
 			}
