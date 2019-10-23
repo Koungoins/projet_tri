@@ -8,6 +8,8 @@
 
 	choix = function(){
 		
+		//recuperation du tri choisis et affichage de la page du tri
+
 		let slct = document.getElementsByName('tri')[0];
 		let tri = slct.value;
 		let contener = document.getElementsByTagName("iframe");
