@@ -37,6 +37,8 @@ span {
 
 #description {
 	margin-bottom : 30px;
+	text-align: justify;
+	padding: 0 10% 0 10%;
 }
 
 .div_form {
