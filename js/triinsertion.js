@@ -76,6 +76,7 @@
 			if(stopTr) {return;}
 			console.log("   j:"+j);
 			if(j>=0){
+				//Si elemet j est plus grand que element i on le met en evidence
 				if(liste[j] > iTemp)
 					lis[j].classList.add("reverse");
 				lis[j+1].classList.remove("reverse");
@@ -92,6 +93,7 @@
 					lis[m].classList.remove("current_position");
 					lis[m].classList.remove("reverse");
 				}
+				//Decallage des element vers la droite pour inserer l'element i devant
 				console.log("debug: jPos:", jPos)
 				const jText = lis[i].innerText;
 				for(let n=i-1; n>jPos-1; n--){

@@ -43,7 +43,7 @@
 
 	
 
-	function forloop() {
+	 function forloop() {
 		setTimeout(function(){
 			if(stopTr) {return;}
 			console.log(liste);
@@ -59,7 +59,7 @@
 			lis[i].classList.add("current_position"); 
 
 			//on delay le chgt de nom
-			//Changement de position dans le HTML, changment du contenu
+			//Changement de position dans le HTML, changement du contenu
 			if(namechange) {
 				lis[i-1].innerText = v1
 				lis[i].innerText = v2
@@ -86,7 +86,7 @@
 					v1 = liste[i];
 					v2 = liste[i+1];
 					//lis[i].innerText = liste[i];
-					//lis[i+1].innerText = liste[i+1];
+					//lfunctionis[i+1].innerText = liste[i+1];
 
 				}
 				i++;
